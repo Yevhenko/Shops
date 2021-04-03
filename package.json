@@ -2,9 +2,12 @@
   "name": "shops",
   "version": "1.0.0",
   "description": "test task for Chatbots.studio",
-  "main": "app.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "tsc --build && node dist/index.js",
+    "local:dev:typeorm": "npm run typeorm:dev",
+    "typeorm:dev": "ts-node ./node_modules/.bin/typeorm --config ormconfig.json",
+    "typeorm:dev:local:generate": "npm run local:dev:typeorm migration:generate -- --name"
   },
   "repository": {
     "type": "git",

@@ -1,11 +1,11 @@
 version: '3'
 services:
-  service_finder:
+  shops:
     container_name: shops
     build:
       context: .
       dockerfile: Dockerfile
-    command: sh -c "npm run db:start && npm start"
+    command: sh -c "npm run typeorm:dev migration:run && npm run start:dev"
     env_file:
       - .env
     ports:
