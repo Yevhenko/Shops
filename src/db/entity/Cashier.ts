@@ -2,6 +2,10 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 import { CashRegister } from './CashRegister';
 import { Shop } from './Shop';
 
+enum Shifts {
+  day,
+  night
+};
 @Entity()
 export class Cashier {
   @PrimaryGeneratedColumn()
@@ -22,11 +26,14 @@ export class Cashier {
   @Column()
   experience!: number;
 
-  @Column({ length: 1 })
-  worksInShifts: string;
+  @Column({
+    type: 'enum',
+    enum: Shifts,
+   })
+  worksInShifts!: Shifts;
 
   @Column({ length: 100 })
-  previousPlaceOfWork: string;
+  previousPlaceOfWork!: string;
 
   @CreateDateColumn()
   createdAt!: Date;
