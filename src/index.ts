@@ -6,7 +6,7 @@ import epl from 'express-pino-logger';
 import bodyParser from 'body-parser';
 
 import { logger } from './logger';
-// import router from './server/router';
+import router from './server/router';
 import { createConnection } from 'typeorm';
 
 const app = express();
@@ -18,7 +18,7 @@ app.use(epl({ logger: logger }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(router);
+app.use(router);
 
 createConnection()
   .then(async (connection) => {
