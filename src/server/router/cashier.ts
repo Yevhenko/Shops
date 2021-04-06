@@ -1,5 +1,5 @@
 import express from 'express';
-import { createCashier, updateCashier, getCashier, deleteCashier, getAllCashiers } from '../handler';
+import { createCashier, updateCashier, getCashier, deleteCashier, getAllCashiers, getTargetCashiers1 } from '../handler';
 
 const cashier = express.Router();
 
@@ -65,7 +65,7 @@ cashier.get('/cashier/:id', async (req, res, next) => {
   }
 });
 
-cashier.get('/cashier', async (req, res, next) => {
+cashier.get('/cashiers', async (req, res, next) => {
   try {
 
     const response = await getAllCashiers();
@@ -75,5 +75,17 @@ cashier.get('/cashier', async (req, res, next) => {
     next(error);
   }
 });
+
+cashier.get('/cashiers1', async (req, res, next) => {
+  try {
+
+    const response = await getTargetCashiers1();
+
+    res.json(response);
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 export = cashier;
