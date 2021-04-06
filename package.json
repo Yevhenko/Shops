@@ -4,10 +4,10 @@
   "description": "test task for Chatbots.studio",
   "main": "dist/index.js",
   "scripts": {
-    "start:dev": "tsc --build && node dist/index.js",
+    "start": "tsc --build ",
+    "start:dev": "node dist/index.js",
     "local:dev:typeorm": "npm run typeorm:dev",
-    "typeorm:dev": "ts-node ./node_modules/.bin/typeorm --config ormconfig.json",
-    "typeorm:dev:local:generate": "npm run local:dev:typeorm migration:generate -- --name"
+    "typeorm:dev": "ts-node ./node_modules/.bin/typeorm --config ormconfig.json"
   },
   "repository": {
     "type": "git",
