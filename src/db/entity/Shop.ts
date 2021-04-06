@@ -13,6 +13,9 @@ export class Shop {
   @Column({ length: 100 })
   city!: string;
 
+  @Column({ length: 100 })
+  address: string;
+
   @CreateDateColumn()
   createdAt!: Date;
 
