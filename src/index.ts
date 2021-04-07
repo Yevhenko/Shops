@@ -9,6 +9,8 @@ import { logger } from './logger';
 import router from './server/router';
 import { createConnection } from 'typeorm';
 
+import { getAllCashiers, getTargetCashiers1, getTargetCashiers2 } from './server/handler';
+
 const app = express();
 
 const port = env.APP_PORT;
@@ -27,5 +29,9 @@ createConnection()
     app.listen(port, () => {
       return logger.info(`Server is listening on ${port}`);
     });
+
+    logger.info(await getAllCashiers());
+    logger.info(await getTargetCashiers1());
+    logger.info(await getTargetCashiers2());
   })
   .catch((error) => console.error(error));

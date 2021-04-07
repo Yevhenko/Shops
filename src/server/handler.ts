@@ -84,7 +84,7 @@ export const getTargetCashiers1 = async(): Promise<Body[] | null> => {
 export const getTargetCashiers2 = async(): Promise<Body[] | null> => {
   try {
     const entityManager = getManager();
-    const cashiers = await entityManager.query(`SELECT "firstName", "lastName" FROM Cashier WHERE "worksInShifts" = 'night' AND "shopId" = (SELECT "id" FROM Shop WHERE "name" = 'ATB' AND "address" = 'Shevchenka100') AND "id" = (SELECT "cashierId" FROM CashRegister WHERE "id" %2 != 0)`);
+    const cashiers = await entityManager.query(`SELECT "firstName", "lastName" FROM Cashier WHERE "worksInShifts" = '1' AND "shopId" = (SELECT "id" FROM Shop WHERE "name" = 'ATB' AND "address" = 'Shevchenka100') AND "id" = (SELECT "cashierId" FROM Cash_register WHERE "id" %2 != 0)`);
 
     return cashiers;
   } catch(error) {
